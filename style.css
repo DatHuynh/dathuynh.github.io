@@ -1,0 +1,1085 @@
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  float:left
+}
+
+.buy_container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  float:right;
+}
+
+.buy_container .button {
+  position: absolute;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+.container .mat_1 {
+  position: absolute;
+  top: 11%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  border: 2px solid;
+}
+
+.container .mat_2 {
+  position: absolute;
+  top: 11%;
+  left: 56%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_3 {
+  position: absolute;
+  top: 11%;
+  left: 68%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_4 {
+  position: absolute;
+  top: 11%;
+  left: 78%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_5 {
+  position: absolute;
+  top: 11%;
+  left: 82%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_6 {
+  position: absolute;
+  top: 19%;
+  left: 82%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_7 {
+  position: absolute;
+  top: 28%;
+  left: 82.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_8 {
+  position: absolute;
+  top: 36%;
+  left: 83%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_9 {
+  position: absolute;
+  top: 44%;
+  left: 83%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_10 {
+  position: absolute;
+  top: 52%;
+  left: 83%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_11 {
+  position: absolute;
+  top: 61%;
+  left: 83%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_12 {
+  position: absolute;
+  top: 64.5%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_13 {
+  position: absolute;
+  top: 64.5%;
+  left: 69%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_14 {
+  position: absolute;
+  top: 64.5%;
+  left: 57%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_15 {
+  position: absolute;
+  top: 64.5%;
+  left: 46%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_16 {
+  position: absolute;
+  top: 15.5%;
+  left: 38%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_17 {
+  position: absolute;
+  top: 23.5%;
+  left: 38%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_18 {
+  position: absolute;
+  top: 32%;
+  left: 38%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_19 {
+  position: absolute;
+  top: 40%;
+  left: 38%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_20 {
+  position: absolute;
+  top: 48.5%;
+  left: 38%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_21 {
+  position: absolute;
+  top: 57%;
+  left: 38%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_38 {
+  position: absolute;
+  top: 19%;
+  left: 44%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_37 {
+  position: absolute;
+  top: 28%;
+  left: 44%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_36 {
+  position: absolute;
+  top: 36%;
+  left: 44%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_35 {
+  position: absolute;
+  top: 44%;
+  left: 44%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_34 {
+  position: absolute;
+  top: 52%;
+  left: 44%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_41 {
+  position: absolute;
+  top: 19%;
+  left: 71.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_42 {
+  position: absolute;
+  top: 28%;
+  left: 71.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_43 {
+  position: absolute;
+  top: 36%;
+  left: 71.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_44 {
+  position: absolute;
+  top: 44%;
+  left: 71.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_45 {
+  position: absolute;
+  top: 52%;
+  left: 71.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_58 {
+  position: absolute;
+  top: 28%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_59 {
+  position: absolute;
+  top: 36%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_60 {
+  position: absolute;
+  top: 44%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_61 {
+  position: absolute;
+  top: 28%;
+  left: 60.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_62 {
+  position: absolute;
+  top: 36%;
+  left: 60.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_63 {
+  position: absolute;
+  top: 44%;
+  left: 60.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_25 {
+  position: absolute;
+  top: 15.5%;
+  left: 76.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_26 {
+  position: absolute;
+  top: 23.5%;
+  left: 76.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_27 {
+  position: absolute;
+  top: 32%;
+  left: 76.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_28 {
+  position: absolute;
+  top: 40%;
+  left: 77%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_29 {
+  position: absolute;
+  top: 48.5%;
+  left: 77%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_30 {
+  position: absolute;
+  top: 57%;
+  left: 77.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_51 {
+  position: absolute;
+  top: 23.5%;
+  left: 49.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_50 {
+  position: absolute;
+  top: 32%;
+  left: 49.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_49 {
+  position: absolute;
+  top: 40%;
+  left: 49.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_48 {
+  position: absolute;
+  top: 48.5%;
+  left: 49.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_53 {
+  position: absolute;
+  top: 23.5%;
+  left: 66%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_54 {
+  position: absolute;
+  top: 32%;
+  left: 66%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_55 {
+  position: absolute;
+  top: 40%;
+  left: 66%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_56 {
+  position: absolute;
+  top: 48.5%;
+  left: 66%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.container .mat_39 {
+  position: absolute;
+  top: 19.1%;
+  left: 56.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_40 {
+  position: absolute;
+  top: 19%;
+  left: 68%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_47 {
+  position: absolute;
+  top: 56%;
+  left: 57%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_46 {
+  position: absolute;
+  top: 56%;
+  left: 68%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_22 {
+  position: absolute;
+  top: 15%;
+  left: 73%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_23 {
+  position: absolute;
+  top: 15%;
+  left: 62%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_24 {
+  position: absolute;
+  top: 15%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_33 {
+  position: absolute;
+  top: 60.2%;
+  left: 74%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_32 {
+  position: absolute;
+  top: 60.2%;
+  left: 62%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_31 {
+  position: absolute;
+  top: 60.2%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_52 {
+  position: absolute;
+  top: 23.1%;
+  left: 62%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .mat_57 {
+  position: absolute;
+  top: 52%;
+  left: 62.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b1d79d;
+  color: #b1d79d;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .btn:hover {
+  background-color: black;
+}
