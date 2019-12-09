@@ -208,8 +208,11 @@
     }
 	
 	function submit(){
-		text = document.getElementsByName('name')[0];
-		name = text.value;
+		text_name = document.getElementsByName('name')[0];
+		name = text_name.value;
+		text_note = document.getElementsByName('note')[0];
+		note = text_note.value;
+		
 		
 		if(name.includes("|")){
 			alert("Cannot contain special character: |");
@@ -218,7 +221,7 @@
 		
 		for(var i = 0; i < buttons.length;++i){
 			if (mats[i]=="S"){
-				infos[i] = name;
+				infos[i] = name+" ("+note+")";
 			}
 			//console.log(name,id,colors[price]);
 		}
@@ -556,13 +559,17 @@ Select
 
 </script>
 
-<form action="/action_page.php">
-  Name:<br>
-  <input type="text" name="name" value="">
-  <br>
-   <p>Total:</p>
-   <p id="total_price">$0</p>    
-  <br>
+<form>
+	Name:<br>
+	<input type="text" name="name" value="">
+
+	<br>Note:<br>
+	<textarea name="note" style="height: 50px;width: 200px;" rows="10" cols="35"></textarea>
+
+	<br>
+	<p>Total:</p>
+	<p id="total_price">$0</p>    
+	<br>
 </form>
 <!-- Set up a container element for the button -->
 <div id="paypal-button-container"></div>
