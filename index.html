@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<h2>Boston Aikikai</h2>
+<p>All blames go to Đạt Huỳnh.</p>
+
+<script>
+	var mats = ["A", "A", "A", "A", "A", "A",
+				"A", "A", "A", "A", "A", "A",
+				"A", "A", "A", "A", "A", "A",
+				"A", "A", "A", "A", "A", "A",
+				"A", "A", "A", "A", "A", "A",
+				"A", "A", "A", "A", "A", "A",
+				"A", "A", "A", "A", "A", "A",
+				"A", "A", "A", "A", "A", "A",
+				"A", "A", "A", "A", "A", "A",
+				"A", "A", "A", "A", "A", "A",
+				"A", "A", "A"];
+				
+	var prices = [130, 130, 130, 130, 130, 130, 130, 130, 130, 130,
+				  130, 135, 135, 135, 135, 130, 130, 130, 130, 130,
+				  130, 125, 125, 125, 125, 125, 125, 125, 125, 125,
+				  125, 125, 125, 125, 125, 125, 125, 125, 120, 120,
+				  120, 120, 120, 120, 120, 120, 120, 120, 120, 120,
+				  120, 110, 110, 110, 110, 110, 110, 100, 100, 100,
+				  100, 100, 100
+				];
+	
+	var colors = {
+		100: "#aaffaa",
+		110: "#55ddff",
+		120: "#8080ff",
+		125: "#dd55ff",
+		130: "#ff9955",
+		135: "#ffcc00"
+	};
+	
+	var total = 0;
+	
+	function setColor(button,color){
+		button.style.backgroundColor = color;
+		button.style.color = color;
+	}
+	
+	function colorCode(){
+		buttons = document.getElementsByTagName('button')
+		for(var i = 0; i < buttons.length;++i){
+			button = buttons[i];
+			name = button.className;
+			id = Number(name.split("_")[1])-1;
+			price = prices[id];
+			setColor(button,colors[price]);
+			//console.log(name,id,colors[price]);
+		}
+	}
+	
+	function compute_price(){
+		var ret = 0;
+		for (var i = 0; i < mats.length; i++) {
+			if(mats[i]=="S"){
+				ret += prices[i];
+			}
+		}
+		return ret;
+	}
+	
+    function onClick(btn) {
+		name = btn.className;
+		id = Number(name.split("_")[1])-1;
+		price = prices[id];
+		
+		if(mats[id] == "A"){
+			//btn.style.backgroundColor = "#F93822";
+			//setColor(btn,"#F93822");
+			btn.style.opacity = 0.4;
+			btn.style.borderColor = "#F93822";
+			mats[id] = "S";
+		}
+		else if (mats[id] == "S"){
+			//btn.style.backgroundColor = "#b1d79d";
+			//setColor(btn,colors[price]);
+			btn.style.opacity = 1;
+			btn.style.borderColor=colors[price];
+			mats[id] = "A";
+		}
+		total = compute_price();
+		
+		price_text = document.getElementById("total_price");
+		price_text.textContent = "$"+total.toString()
+        
+    }
+</script>
+
+<div class="container">
+
+<img src="main_files/Mat_pattern1.png" alt="Mat_layout">
+
+<button class="mat_1" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_2" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_3" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_4" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_5" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_6" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_7" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_8" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_9" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_10" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_11" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_12" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_13" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_14" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_15" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_16" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_17" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_18" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_19" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_20" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_21" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_34" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_35" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_36" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_37" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_38" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_41" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_42" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_43" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_44" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_45" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_58" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_59" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_60" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_61" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_62" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_63" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_25" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_26" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_27" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_28" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_29" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_30" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_51" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_50" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_49" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_48" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_53" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_54" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_55" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_56" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_39" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_40" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_47" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_46" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_22" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_23" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_24" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_33" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_32" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_31" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_52" onclick="onClick(this)">
+Button
+</button>
+
+<button class="mat_57" onclick="onClick(this)">
+Button
+</button>
+
+</div>
+
+<div class="buy_container">
+
+<form action="/action_page.php">
+  Name:<br>
+  <input type="text" name="name" value="">
+  <br>
+   <p>Total:</p>
+   <p id="total_price">$0</p>    
+  <br>
+</form> 
+  <input type="submit" class="button" value="Submit">
+
+</div>
+
+
+<script>
+colorCode();
+</script>
+
+</body></html>
