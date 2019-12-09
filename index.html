@@ -136,9 +136,17 @@
 		var ret = $.ajax({
 			url: server_update+"?type=mat&value="+formatInfo(),
 			method: "GET",
-			dataType: "json"
-		}).success(
-		);
+			dataType: "json",
+			success:
+			function(data){
+				console.log(data);
+				loadData();
+				alert("Thanks for your support :)");
+			},
+			 error: function(data) {
+                console.log(data);
+            }
+		});
 		
 	}
 	
@@ -202,6 +210,12 @@
 	function submit(){
 		text = document.getElementsByName('name')[0];
 		name = text.value;
+		
+		if(name.includes("|")){
+			alert("Cannot contain special character: |");
+			return;
+		}
+		
 		for(var i = 0; i < buttons.length;++i){
 			if (mats[i]=="S"){
 				infos[i] = name;
@@ -210,7 +224,6 @@
 		}
 		
 		updateData();
-		
 	}
 </script>
 
