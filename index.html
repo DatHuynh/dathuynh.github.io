@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html><head>
+<html>
+<head>
+  <!-- Add Sheetsu Web Client script to the head -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="style.css" rel="stylesheet" type="text/css">
@@ -14,6 +18,8 @@
 <p>All blames go to Đạt Huỳnh.</p>
 
 <script>
+	var server = "https://spreadsheets.google.com/feeds/cells/1wVsAgR1g-X-P-0st4Roa4gbqp09CAg77ya7mQgDjBCk/od6/public/basic?alt=json";
+	var datapath = "/data.csv";
 	var mats = ["A", "A", "A", "A", "A", "A",
 				"A", "A", "A", "A", "A", "A",
 				"A", "A", "A", "A", "A", "A",
@@ -25,6 +31,18 @@
 				"A", "A", "A", "A", "A", "A",
 				"A", "A", "A", "A", "A", "A",
 				"A", "A", "A"];
+				
+	var infos = ["", "", "", "", "", "",
+				"", "", "", "", "", "",
+				"", "", "", "", "", "",
+				"", "", "", "", "", "",
+				"", "", "", "", "", "",
+				"", "", "", "", "", "",
+				"", "", "", "", "", "",
+				"", "", "", "", "", "",
+				"", "", "", "", "", "",
+				"", "", "", "", "", "",
+				"", "", ""];
 				
 	var prices = [130, 130, 130, 130, 130, 130, 130, 130, 130, 130,
 				  130, 135, 135, 135, 135, 130, 130, 130, 130, 130,
@@ -45,6 +63,24 @@
 	};
 	
 	var total = 0;
+	
+	function formatInfo(){
+		var ret = "";
+		for(var i =0; i<infos.length-1;++i){
+			ret += infos[i]+"|";
+		}
+		ret+=infos[infos.length-1];
+		return ret;
+	}
+	
+	function loadData(){
+		$.getJSON(server, function(data) {
+			str_infos = data.feed.entry[3].content.$t;
+			infos = str_infos.split("|");
+			colorCode();
+			however_info();
+		});
+	}
 	
 	function however_info(){
 		buttons = document.getElementsByTagName('button')
@@ -77,6 +113,13 @@
 			id = Number(name.split("_")[1])-1;
 			price = prices[id];
 			setColor(button,colors[price]);
+			
+			if(infos[id] != ""){
+				mats[id]="B";
+				button.style.opacity = 0.4;
+				button.onclick = null;
+			}
+			
 			//console.log(name,id,colors[price]);
 		}
 	}
@@ -116,11 +159,23 @@
 		price_text.textContent = "$"+total.toString()
         
     }
+	
+	function submit(){
+		text = document.getElementsByName('name')[0];
+		name = text.value;
+		for(var i = 0; i < buttons.length;++i){
+			if (mats[i]=="S"){
+				infos[i] = name;
+			}
+			//console.log(name,id,colors[price]);
+		}
+		
+	}
 </script>
 
 <div class="container" id="mat_layout">
 
-<img src="main_files/Mat_pattern1.png" alt="Mat_layout">
+<img src="Mat_pattern1.png" alt="Mat_layout">
 
 <button class="mat_1" onclick="onClick(this)">
 Button
@@ -440,7 +495,12 @@ Button
 
 </div>
 
+
 <div class="buy_container">
+
+<script>
+
+</script>
 
 <form action="/action_page.php">
   Name:<br>
@@ -449,8 +509,8 @@ Button
    <p>Total:</p>
    <p id="total_price">$0</p>    
   <br>
+	<button type="button" onclick="submit()">Submit</button>
 </form>
-
 <!-- Set up a container element for the button -->
 <div id="paypal-button-container"></div>
 
@@ -458,6 +518,8 @@ Button
 <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
 
 <script>
+	loadData();
+	
 	// Render the PayPal button into #paypal-button-container
 	paypal.Buttons({
 
@@ -484,12 +546,11 @@ Button
 	}).render('#paypal-button-container');
 </script>
 
+
+
 </div>
 
 
-<script>
-colorCode();
-however_info();
-</script>
+
 
 </body></html>

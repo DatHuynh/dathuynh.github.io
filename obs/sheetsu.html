@@ -1,0 +1,12 @@
+<head>
+  <script src="https://script.sheetsu.com/"></script>
+</head>
+<body>
+  <script>
+    function successFunc(data) {
+      console.log(data);
+    }
+    // Read whole spreadsheet
+    Sheetsu.read("https://sheetsu.com/apis/v1.0lw/020b2c0f/", {}, successFunc);
+  </script>
+</body>
