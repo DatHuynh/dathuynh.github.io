@@ -18,7 +18,12 @@
 <p>All blames go to Đạt Huỳnh.</p>
 
 <script>
-	var server = "https://spreadsheets.google.com/feeds/cells/1wVsAgR1g-X-P-0st4Roa4gbqp09CAg77ya7mQgDjBCk/od6/public/basic?alt=json";
+	var server_query = "https://spreadsheets.google.com/feeds/cells/1wVsAgR1g-X-P-0st4Roa4gbqp09CAg77ya7mQgDjBCk/od6/public/basic?alt=json";
+	
+	var server_update = "https://script.google.com/macros/s/AKfycbyZZwOslPJvD4ZAb2PC69bCxeIL92JAyUZMx2denbkT3NdyVDo/exec";
+	
+	var opacity = 0.6;
+	
 	var datapath = "/data.csv";
 	var mats = ["A", "A", "A", "A", "A", "A",
 				"A", "A", "A", "A", "A", "A",
@@ -74,9 +79,15 @@
 	}
 	
 	function loadData(){
-		$.getJSON(server, function(data) {
-			str_infos = data.feed.entry[3].content.$t;
-			infos = str_infos.split("|");
+		$.getJSON(server_query, function(data) {
+			str_info = "";
+			for(var i =0; i < data.feed.entry.length; ++i){
+				str = data.feed.entry[i].content.$t;
+				if(str.includes("|")){
+					str_info=str;
+				}
+			}
+			infos = str_info.split("|");
 			colorCode();
 			however_info();
 		});
@@ -91,18 +102,44 @@
 			
 			tooltip = button.children[0];
 			
+			tooltip.style.opacity = 1;
+			
 			price = prices[id];
 			
-			tooltip.textContent = "ID: "+(id+1).toString() + " - Value: $"+price.toString();
+			content = "ID: "+(id+1).toString() + " - Value: $"+price.toString();
 			
-			setColor(button,colors[price]);
-			//console.log(name,id,colors[price]);
+			if(infos[id]!=""){
+				content = content+" - Sold to "+infos[id];
+			}
+			
+			tooltip.textContent = content;
 		}
 	}
 	
 	function setColor(button,color){
 		button.style.backgroundColor = color;
 		button.style.color = color;
+	}
+	
+	function successFunc(data){
+		console.log(data);
+	}
+	
+	function updateData(){
+		var new_data = { 
+            type: "mat",
+            value: formatInfo()
+        }; 
+		
+		json_data = JSON.stringify(new_data);
+		
+		var ret = $.ajax({
+			url: server_update+"?type=mat&value="+formatInfo(),
+			method: "GET",
+			dataType: "json"
+		}).success(
+		);
+		
 	}
 	
 	function colorCode(){
@@ -116,7 +153,7 @@
 			
 			if(infos[id] != ""){
 				mats[id]="B";
-				button.style.opacity = 0.4;
+				button.style.opacity = opacity;
 				button.onclick = null;
 			}
 			
@@ -142,15 +179,17 @@
 		if(mats[id] == "A"){
 			//btn.style.backgroundColor = "#F93822";
 			//setColor(btn,"#F93822");
-			btn.style.opacity = 0.4;
-			btn.style.borderColor = "#F93822";
+			btn.style.opacity = opacity;
+			
+			btn.style.color = "#2a2aff";
+			
 			mats[id] = "S";
 		}
 		else if (mats[id] == "S"){
 			//btn.style.backgroundColor = "#b1d79d";
 			//setColor(btn,colors[price]);
 			btn.style.opacity = 1;
-			btn.style.borderColor=colors[price];
+			btn.style.color=colors[price];
 			mats[id] = "A";
 		}
 		total = compute_price();
@@ -170,6 +209,8 @@
 			//console.log(name,id,colors[price]);
 		}
 		
+		updateData();
+		
 	}
 </script>
 
@@ -178,317 +219,317 @@
 <img src="Mat_pattern1.png" alt="Mat_layout">
 
 <button class="mat_1" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_2" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_3" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_4" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_5" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_6" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_7" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_8" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_9" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_10" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_11" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_25" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_26" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_27" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_28" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_29" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_30" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_39" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_40" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_22" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_23" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_24" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_52" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_41" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_42" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_43" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_44" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_45" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_53" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_54" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_55" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_56" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_61" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_62" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_63" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_58" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_59" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_60" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_51" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_50" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_49" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_48" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_34" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_35" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_36" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_37" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_38" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_16" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_17" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_18" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_19" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_20" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_21" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_57" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_47" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_46" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_33" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_32" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_31" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_12" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_13" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_14" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
 <button class="mat_15" onclick="onClick(this)">
-Button
+Select
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
@@ -509,7 +550,6 @@ Button
    <p>Total:</p>
    <p id="total_price">$0</p>    
   <br>
-	<button type="button" onclick="submit()">Submit</button>
 </form>
 <!-- Set up a container element for the button -->
 <div id="paypal-button-container"></div>
