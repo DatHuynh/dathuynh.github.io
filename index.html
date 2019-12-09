@@ -44,12 +44,20 @@
 	var total = 0;
 	
 	function however_info(){
-		var e = document.getElementById('mat_layout');
-		e.onmouseover = function() {
-		  document.getElementById('popup').style.display = 'block';
-		}
-		e.onmouseout = function() {
-		  document.getElementById('popup').style.display = 'none';
+		buttons = document.getElementsByTagName('button')
+		for(var i = 0; i < buttons.length;++i){
+			button = buttons[i];
+			name = button.className;
+			id = Number(name.split("_")[1])-1;
+			
+			tooltip = button.children[0];
+			
+			price = prices[id];
+			
+			tooltip.textContent = "ID: "+(id+1).toString() + " - Value: $"+price.toString();
+			
+			setColor(button,colors[price]);
+			//console.log(name,id,colors[price]);
 		}
 	}
 	
@@ -166,22 +174,182 @@ Button
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
-<button class="mat_12" onclick="onClick(this)">
+<button class="mat_25" onclick="onClick(this)">
 Button
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
-<button class="mat_13" onclick="onClick(this)">
+<button class="mat_26" onclick="onClick(this)">
 Button
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
-<button class="mat_14" onclick="onClick(this)">
+<button class="mat_27" onclick="onClick(this)">
 Button
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
-<button class="mat_15" onclick="onClick(this)">
+<button class="mat_28" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_29" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_30" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_39" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_40" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_22" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_23" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_24" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_52" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_41" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_42" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_43" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_44" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_45" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_53" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_54" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_55" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_56" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_61" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_62" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_63" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_58" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_59" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_60" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_51" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_50" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_49" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_48" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_34" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_35" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_36" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_37" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_38" onclick="onClick(this)">
 Button
 <span class="tooltiptext">Tooltip text</span>
 </button>
@@ -216,162 +384,7 @@ Button
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
-<button class="mat_34" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_35" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_36" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_37" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_38" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_41" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_42" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_43" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_44" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_45" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_58" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_59" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_60" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_61" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_62" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_63" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_25" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_26" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_27" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_28" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_29" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_30" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_51" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_50" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_49" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_48" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_53" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_54" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_55" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_56" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_39" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_40" onclick="onClick(this)">
+<button class="mat_57" onclick="onClick(this)">
 Button
 <span class="tooltiptext">Tooltip text</span>
 </button>
@@ -382,21 +395,6 @@ Button
 </button>
 
 <button class="mat_46" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_22" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_23" onclick="onClick(this)">
-Button
-<span class="tooltiptext">Tooltip text</span>
-</button>
-
-<button class="mat_24" onclick="onClick(this)">
 Button
 <span class="tooltiptext">Tooltip text</span>
 </button>
@@ -416,15 +414,26 @@ Button
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
-<button class="mat_52" onclick="onClick(this)">
+<button class="mat_12" onclick="onClick(this)">
 Button
 <span class="tooltiptext">Tooltip text</span>
 </button>
 
-<button class="mat_57" onclick="onClick(this)">
+<button class="mat_13" onclick="onClick(this)">
 Button
 <span class="tooltiptext">Tooltip text</span>
 </button>
+
+<button class="mat_14" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
+<button class="mat_15" onclick="onClick(this)">
+Button
+<span class="tooltiptext">Tooltip text</span>
+</button>
+
 
 </div>
 
