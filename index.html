@@ -230,12 +230,18 @@
 		return ret;
 	}
 	
+	function unselect(){
+		for(var i = 0; i < mats.length; ++i){
+			if(mats[i]=="S"){
+				mats[i] = "A"
+			}
+		}
+	}
+	
     function onClick(btn) {
 		var name = btn.className;
 		var id = Number(name.split("_")[1])-1;
 		var price = prices[id];
-		
-		
 		
 		if(mats[id] == "A"){
 			
@@ -250,6 +256,7 @@
 			}
 			
 			if(price == 135){
+				unselect();
 				colorCode();
 				alert("This is bidding mat. You can only select one bidding mat at a time. Please leave your email and bidding price in the note.");
 				is_bid = true;
