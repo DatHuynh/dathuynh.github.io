@@ -59,7 +59,7 @@
 				];
 	
 	var colors = {
-		100: "#aaffaa",
+		100: "#ff2a7f",
 		110: "#55ddff",
 		120: "#8080ff",
 		125: "#dd55ff",
@@ -78,18 +78,48 @@
 		return ret;
 	}
 	
+	function hasSpecialChar(str){
+		specialChars = ["|","*","?","&","#","@"];
+		if(str==""){
+			return true;
+		}
+		for (c in specialChars){
+			if(str.includes(c)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	function loadData(){
+		payment = document.getElementById("paypal-button-container");
+		payment.style.visibility = "hidden";
+		
+		cancel = document.getElementById("cancel");
+		cancel.style.visibility = "hidden";
+		
 		$.getJSON(server_query, function(data) {
 			str_info = "";
+			str_type = "";
 			for(var i =0; i < data.feed.entry.length; ++i){
 				str = data.feed.entry[i].content.$t;
 				if(str.includes("|")){
 					str_info=str;
 				}
+				if(str.includes("*")){
+					str_type=str;
+				}
 			}
-			infos = str_info.split("|");
-			colorCode();
-			however_info();
+			
+			if(str_type=="*preserve"){
+				alert("To prevent double-buying of the same mat, we can only serve one access at a time. Currently someone is making a donation. Please come back after 5 mins.");
+				location.reload();
+			}
+			else{
+				infos = str_info.split("|");
+				colorCode();
+				however_info();
+			}
 		});
 	}
 	
@@ -98,9 +128,16 @@
 		for(var i = 0; i < buttons.length;++i){
 			button = buttons[i];
 			name = button.className;
+			if(name.includes("mat")==false){
+				continue;
+			}
 			id = Number(name.split("_")[1])-1;
 			
-			tooltip = button.children[0];
+			var tooltip = document.createElement('span');
+			
+			button.appendChild(tooltip);
+			
+			tooltip.className = "tooltiptext";
 			
 			tooltip.style.opacity = 1;
 			
@@ -113,6 +150,7 @@
 			}
 			
 			tooltip.textContent = content;
+			
 		}
 	}
 	
@@ -126,15 +164,9 @@
 	}
 	
 	function updateData(){
-		var new_data = { 
-            type: "mat",
-            value: formatInfo()
-        }; 
-		
-		json_data = JSON.stringify(new_data);
 		
 		var ret = $.ajax({
-			url: server_update+"?type=mat&value="+formatInfo(),
+			url: server_update+"?type=*mat&value="+formatInfo(),
 			method: "GET",
 			dataType: "json",
 			success:
@@ -155,13 +187,17 @@
 		for(var i = 0; i < buttons.length;++i){
 			button = buttons[i];
 			name = button.className;
+			if(name.includes("mat")==false){
+				continue;
+			}
 			id = Number(name.split("_")[1])-1;
 			price = prices[id];
 			setColor(button,colors[price]);
 			
 			if(infos[id] != ""){
 				mats[id]="B";
-				button.style.opacity = opacity;
+				//button.style.opacity = opacity;
+				setColor(button,"rgba(127,255,42,0.3)")
 				button.onclick = null;
 			}
 			
@@ -187,7 +223,7 @@
 		if(mats[id] == "A"){
 			//btn.style.backgroundColor = "#F93822";
 			//setColor(btn,"#F93822");
-			btn.style.opacity = opacity;
+			//btn.style.opacity = opacity;
 			
 			btn.style.color = "#2a2aff";
 			
@@ -196,7 +232,7 @@
 		else if (mats[id] == "S"){
 			//btn.style.backgroundColor = "#b1d79d";
 			//setColor(btn,colors[price]);
-			btn.style.opacity = 1;
+			//btn.style.opacity = 1;
 			btn.style.color=colors[price];
 			mats[id] = "A";
 		}
@@ -210,8 +246,20 @@
 	function submit(){
 		text_name = document.getElementsByName('name')[0];
 		name = text_name.value;
+		
 		text_note = document.getElementsByName('note')[0];
 		note = text_note.value;
+		
+		if(hasSpecialChar(name)){
+			alert("name cannot be empty or containing special character");
+		}
+		
+		if(hasSpecialChar(note)){
+			alert("note cannot be empty or containing special character");
+		}
+		
+		
+		
 		
 		
 		if(name.includes("|")){
@@ -228,325 +276,335 @@
 		
 		updateData();
 	}
+	
+	function mouseOut(btn){
+		btn.style.zIndex = 1;
+		console.log("Up");
+	}
+	
+	function mouseOver(btn){
+		btn.style.zIndex = 1000;
+		console.log("Over");
+	}
 </script>
 
 <div class="container" id="mat_layout">
 
 <img src="Mat_pattern1.png" alt="Mat_layout">
 
-<button class="mat_1" onclick="onClick(this)">
+<button class="mat_1" onclick="onClick(this)" onmouseout ="mouseUp(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_2" onclick="onClick(this)">
+<button class="mat_2" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_3" onclick="onClick(this)">
+<button class="mat_3" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_4" onclick="onClick(this)">
+<button class="mat_4" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_5" onclick="onClick(this)">
+<button class="mat_5" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_6" onclick="onClick(this)">
+<button class="mat_6" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_7" onclick="onClick(this)">
+<button class="mat_7" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_8" onclick="onClick(this)">
+<button class="mat_8" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_9" onclick="onClick(this)">
+<button class="mat_9" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_10" onclick="onClick(this)">
+<button class="mat_10" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_11" onclick="onClick(this)">
+<button class="mat_11" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_25" onclick="onClick(this)">
+<button class="mat_25" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_26" onclick="onClick(this)">
+<button class="mat_26" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_27" onclick="onClick(this)">
+<button class="mat_27" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_28" onclick="onClick(this)">
+<button class="mat_28" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_29" onclick="onClick(this)">
+<button class="mat_29" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_30" onclick="onClick(this)">
+<button class="mat_30" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_39" onclick="onClick(this)">
+<button class="mat_39" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_40" onclick="onClick(this)">
+<button class="mat_40" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_22" onclick="onClick(this)">
+<button class="mat_22" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_23" onclick="onClick(this)">
+<button class="mat_23" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_24" onclick="onClick(this)">
+<button class="mat_24" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_52" onclick="onClick(this)">
+<button class="mat_52" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_41" onclick="onClick(this)">
+<button class="mat_41" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_42" onclick="onClick(this)">
+<button class="mat_42" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_43" onclick="onClick(this)">
+<button class="mat_43" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_44" onclick="onClick(this)">
+<button class="mat_44" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_45" onclick="onClick(this)">
+<button class="mat_45" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_53" onclick="onClick(this)">
+<button class="mat_53" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_54" onclick="onClick(this)">
+<button class="mat_54" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_55" onclick="onClick(this)">
+<button class="mat_55" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_56" onclick="onClick(this)">
+<button class="mat_56" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_61" onclick="onClick(this)">
+<button class="mat_61" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_62" onclick="onClick(this)">
+<button class="mat_62" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_63" onclick="onClick(this)">
+<button class="mat_63" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_58" onclick="onClick(this)">
+<button class="mat_58" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_59" onclick="onClick(this)">
+<button class="mat_59" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_60" onclick="onClick(this)">
+<button class="mat_60" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_51" onclick="onClick(this)">
+<button class="mat_51" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_50" onclick="onClick(this)">
+<button class="mat_50" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_49" onclick="onClick(this)">
+<button class="mat_49" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_48" onclick="onClick(this)">
+<button class="mat_48" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_34" onclick="onClick(this)">
+<button class="mat_34" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_35" onclick="onClick(this)">
+<button class="mat_35" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_36" onclick="onClick(this)">
+<button class="mat_36" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_37" onclick="onClick(this)">
+<button class="mat_37" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_38" onclick="onClick(this)">
+<button class="mat_38" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_16" onclick="onClick(this)">
+<button class="mat_16" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_17" onclick="onClick(this)">
+<button class="mat_17" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_18" onclick="onClick(this)">
+<button class="mat_18" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_19" onclick="onClick(this)">
+<button class="mat_19" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_20" onclick="onClick(this)">
+<button class="mat_20" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_21" onclick="onClick(this)">
+<button class="mat_21" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_57" onclick="onClick(this)">
+<button class="mat_57" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_47" onclick="onClick(this)">
+<button class="mat_47" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_46" onclick="onClick(this)">
+<button class="mat_46" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_33" onclick="onClick(this)">
+<button class="mat_33" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_32" onclick="onClick(this)">
+<button class="mat_32" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_31" onclick="onClick(this)">
+<button class="mat_31" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_12" onclick="onClick(this)">
+<button class="mat_12" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_13" onclick="onClick(this)">
+<button class="mat_13" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_14" onclick="onClick(this)">
+<button class="mat_14" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
-<button class="mat_15" onclick="onClick(this)">
+<button class="mat_15" onclick="onClick(this)" onmouseout="mouseOut(this)" onmouseover="mouseOver(this)">
 Select
-<span class="tooltiptext">Tooltip text</span>
+
 </button>
 
 
@@ -559,7 +617,13 @@ Select
 
 </script>
 
-<form>
+<div>
+	<button id="cancel" class="button" onclick="cancelPreserve()">
+		Cancel preservation
+	</button>
+	<br>
+	<br>
+	<br>
 	Name:<br>
 	<input type="text" name="name" value="">
 
@@ -570,26 +634,171 @@ Select
 	<p>Total:</p>
 	<p id="total_price">$0</p>    
 	<br>
-</form>
-<!-- Set up a container element for the button -->
-<div id="paypal-button-container"></div>
+	<button class="button" onclick="donate()">
+		Donate
+	</button>
+	
+	
+	<br>
+	<!-- Set up a container element for the button -->
+	<br>
+	<div id="paypal-button-container"div>
+</div>
+
+
 
 <!-- Include the PayPal JavaScript SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AdYmCQ8drEt4dUYF6pP-EHqqnDydatxQbgCynbnCrfI6fqic_fwgQqwsPP8gXRji0YGHCPtm8g5688gU&currency=USD"></script>
 
 <script>
 	loadData();
 	
+	function isDifferent(arr1,arr2){
+		for(var i = 0; i < arr1.length; ++i){
+			if(arr1[i] != arr2[i]){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	function timeout(){
+		alert("Timeout !!");
+		var ret = $.ajax({
+			url: server_update+"?type=*mat&value="+formatInfo(),
+			method: "GET",
+			dataType: "json",
+			success:
+			function(data){
+				location.reload();
+			}
+		});
+		
+	}
+	
+	function cancelPreserve(){
+		alert("Cancel preservation !!");
+		var ret = $.ajax({
+			url: server_update+"?type=*mat&value="+formatInfo(),
+			method: "GET",
+			dataType: "json",
+			success:
+			function(data){
+				location.reload();
+			}
+		});
+	}
+	
+	
+	function perserve(){
+		buttons = document.getElementsByTagName('button')
+		n_select = 0;
+		for(var i = 0; i < buttons.length;++i){
+			button = buttons[i];
+			name = button.className;
+			if(button.id=="cancel"){
+				continue;
+			}
+			
+			button.onclick = null;
+			if(name.includes("mat")==false){
+				button.style.visibility = "hidden";
+				continue;
+			}
+			id = Number(name.split("_")[1])-1;
+			if (mats[id] != "S"){
+				button.style.visibility = "hidden";
+				
+			}
+			else{
+				n_select += 1;
+			}
+			//console.log(name,id,colors[price]);
+		}
+		if(n_select==0){
+			location.reload();
+		}
+		
+		var ret = $.ajax({
+			url: server_update+"?type=*preserve&value="+formatInfo(),
+			method: "GET",
+			dataType: "json",
+			success:
+			function(data){
+				payment = document.getElementById("paypal-button-container");
+				payment.style.visibility = "visible";
+				
+				cancel = document.getElementById("cancel");
+				cancel.style.visibility= "visible";
+				
+				alert("Please select the payment method. We can only preserve your selection within 5mins.");
+				setTimeout(timeout, 1000*60*5);
+			},
+			 error: function(data) {
+                console.log(data);
+            }
+		});
+	}
+	
+	function donate(){
+		text_name = document.getElementsByName('name')[0];
+		name = text_name.value;
+		
+		text_note = document.getElementsByName('note')[0];
+		note = text_note.value;
+		
+		if(hasSpecialChar(name)){
+			alert("name cannot be empty or containing special character");
+			return;
+		}
+		
+		if(hasSpecialChar(note)){
+			alert("note cannot be empty or containing special character");
+			return;
+		}
+		
+	
+		$.getJSON(server_query, function(data) {
+			str_info = "";
+			for(var i =0; i < data.feed.entry.length; ++i){
+				str = data.feed.entry[i].content.$t;
+				if(str.includes("|")){
+					str_info=str;
+				}
+			}
+			infos_new = str_info.split("|");
+			if(isDifferent(infos, infos_new) ){
+				alert("Someone has make a payment therefore we reload the data. Please make your selection again !!");
+				location.reload();
+			}
+			else{
+				perserve();
+			}
+		});
+	}
+	
+	function getDescription(){
+		var ret = "";
+		for(var i = 0; i < mats.length; ++i){
+			if( mats[i] == "S"){
+				ret += "mat_"+(i+1).toString()+","
+			}
+		}
+		return ret;
+	}
+	
 	// Render the PayPal button into #paypal-button-container
 	paypal.Buttons({
-
+		
 		// Set up the transaction
 		createOrder: function(data, actions) {
+			
 			return actions.order.create({
 				purchase_units: [{
 					amount: {
-						value: '0.01'
-					}
+						value: total.toString()
+					},
+					description: getDescription()
 				}]
 			});
 		},
@@ -598,7 +807,9 @@ Select
 		onApprove: function(data, actions) {
 			return actions.order.capture().then(function(details) {
 				// Show a success message to the buyer
+				submit();
 				alert('Transaction completed by ' + details.payer.name.given_name + '!');
+				location.reload();
 			});
 		}
 

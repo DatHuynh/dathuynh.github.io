@@ -253,11 +253,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_5 .tooltiptext::after {
@@ -303,11 +304,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_6 .tooltiptext::after {
@@ -353,11 +355,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_7 .tooltiptext::after {
@@ -403,11 +406,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_8 .tooltiptext::after {
@@ -453,11 +457,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_9 .tooltiptext::after {
@@ -503,11 +508,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_10 .tooltiptext::after {
@@ -553,11 +559,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_11 .tooltiptext::after {
@@ -799,11 +806,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_16 .tooltiptext::after {
@@ -849,11 +857,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_17 .tooltiptext::after {
@@ -899,11 +908,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_18 .tooltiptext::after {
@@ -949,11 +959,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_19 .tooltiptext::after {
@@ -999,11 +1010,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_20 .tooltiptext::after {
@@ -1049,11 +1061,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_21 .tooltiptext::after {
@@ -1099,11 +1112,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_38 .tooltiptext::after {
@@ -1149,11 +1163,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_37 .tooltiptext::after {
@@ -1199,11 +1214,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_36 .tooltiptext::after {
@@ -1249,11 +1265,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_35 .tooltiptext::after {
@@ -1299,11 +1316,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_34 .tooltiptext::after {
@@ -1349,11 +1367,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_41 .tooltiptext::after {
@@ -1399,11 +1418,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_42 .tooltiptext::after {
@@ -1449,11 +1469,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_43 .tooltiptext::after {
@@ -1499,11 +1520,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_44 .tooltiptext::after {
@@ -1549,11 +1571,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_45 .tooltiptext::after {
@@ -1599,11 +1622,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_58 .tooltiptext::after {
@@ -1649,11 +1673,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_59 .tooltiptext::after {
@@ -1699,11 +1724,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_60 .tooltiptext::after {
@@ -1749,11 +1775,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_61 .tooltiptext::after {
@@ -1799,11 +1826,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_62 .tooltiptext::after {
@@ -1849,11 +1877,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_63 .tooltiptext::after {
@@ -1899,11 +1928,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_25 .tooltiptext::after {
@@ -1949,11 +1979,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_26 .tooltiptext::after {
@@ -1999,11 +2030,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_27 .tooltiptext::after {
@@ -2049,11 +2081,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_28 .tooltiptext::after {
@@ -2099,11 +2132,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_29 .tooltiptext::after {
@@ -2149,11 +2183,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_30 .tooltiptext::after {
@@ -2199,11 +2234,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_51 .tooltiptext::after {
@@ -2249,11 +2285,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_50 .tooltiptext::after {
@@ -2299,11 +2336,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_49 .tooltiptext::after {
@@ -2349,11 +2387,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_48 .tooltiptext::after {
@@ -2399,11 +2438,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_53 .tooltiptext::after {
@@ -2449,11 +2489,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_54 .tooltiptext::after {
@@ -2499,11 +2540,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_55 .tooltiptext::after {
@@ -2549,11 +2591,12 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  bottom: 10%;
+  left: -10%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  transform: rotate(-90deg);
 }
 
 .container .mat_56 .tooltiptext::after {
