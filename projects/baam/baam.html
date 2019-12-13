@@ -14,8 +14,15 @@
 
 <body>
 
-<h2>Boston Aikikai</h2>
-<p>All blames go to Đạt Huỳnh.</p>
+<h2>BAM!</h2>
+<p>Boston Aikikai Mats Fundraiser</p>
+<p>Make it green. Help Boston Aikikai pay for the new tatami at our new space
+Each mat you adopt, you can have your name (or remain anonymous) and a short message written on the bottom of your chosen mat and it will be displayed on a poster on the dojo wall.</p>
+<p>The mats that on the windows are higher in value because of fresh air and at the entrance because of the heat and restroom. The prime real estate are at the front by the kamiza which are available to the highest bid (minimum of $135). The donation of the mat descreases toward the center of the mat.</p>
+<p>Thank you very much for your donation. The payment is secured through PayPal. For easier purchase, it is best to have a PayPal account (https://www.paypal.com).</p>
+<p>For other possible donation options or inquiries, please contact Boston Aikikai (bostonaikikai617@gmail.com, subject: Mat Donation).</p>
+<p>We hope you enjoy taking ukemi on your mat.</p>
+<p>Thank you very much !!! With gratitude, Boston Aikikai Dojo. </p>
 
 <script>
 	alert("For optimal experience, please view the site with big screen devices such as tablets, laptops. The layout might be distorted on small screen such as phone.");
@@ -216,6 +223,10 @@
 		}
 	}
 	
+	function round_2(num){
+		return Math.round(num * 100)/100;
+	}
+	
 	function compute_price(){
 		var ret = 0;
 		for (var i = 0; i < mats.length; i++) {
@@ -227,7 +238,7 @@
 				ret += prices[i];
 			}
 		}
-		return ret;
+		return round_2(ret*1.03);
 	}
 	
 	function unselect(){
@@ -686,7 +697,7 @@ Select
 	<textarea name="note" style="height: 50px;width: 200px;" rows="10" cols="35"></textarea>
 
 	<br>
-	<p>Total:</p>
+	<p>Total (included 3% transaction fee):</p>
 	<p id="total_price">$0</p>    
 	<br>
 	<button class="button" onclick="donate()">
