@@ -873,12 +873,18 @@ Select
 		// Set up the transaction
 		createOrder: function(data, actions) {
 			
+			var text_name = document.getElementsByName('name')[0];
+			var name = text_name.value;
+			
+			var text_note = document.getElementsByName('note')[0];
+			var note = text_note.value;
+			
 			return actions.order.create({
 				purchase_units: [{
 					amount: {
 						value: total.toString()
 					},
-					description: getDescription()
+					description: getDescription()+" ("+name+") ("+note+")"
 				}]
 			});
 		},
