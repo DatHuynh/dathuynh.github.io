@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Add Sheetsu Web Client script to the head -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="style.css" rel="stylesheet" type="text/css">
+<!-- Add meta tags for mobile and IE -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+</head>
+
+<body>
+
+<h2>Boston Aikikai</h2>
+<p>Mat Maintance</p>
+
+
+<script>
+	var server_query = "https://spreadsheets.google.com/feeds/cells/1hcxk1k2IK46H1ddl8k2kKUfaYNgdh-4uwtR3W8JjJOY/od6/public/basic?alt=json";
+	
+	var server_update = "https://script.google.com/macros/s/AKfycbyZZwOslPJvD4ZAb2PC69bCxeIL92JAyUZMx2denbkT3NdyVDo/exec";
+	
+	var is_bid = false;
+	
+	var total = 0;
+	
+	function loadData(){
+		var payment = document.getElementById("paypal-button-container");
+		payment.style.visibility = "hidden";
+	
+		$.getJSON(server_query, function(data) {
+		
+			var hof = document.getElementsByName('hall_of_frame')[0];
+			
+			for(var i =0; i < data.feed.entry.length; ++i){
+				str = data.feed.entry[i].content.$t;
+				if(str.includes("|")){
+					var strs = str.split("|");
+					var name = strs[0];
+					var note = strs[1];
+					
+					var txt = document.createElement("p");  // Create with DOM
+					txt.innerHTML = name + "\t:\t" + note;
+					hof.append(txt);
+				}		
+			}
+		});
+	}
+	
+	function formatInfo(){
+		var ret = "";
+		for(var i =0; i<infos.length-1;++i){
+			ret += infos[i]+"|";
+		}
+		ret+=infos[infos.length-1];
+		return ret;
+	}
+	
+	function hasSpecialChar(str){
+		specialChars = ["|","*","?","&","#"];
+		if(str==""){
+			return true;
+		}
+		for (var i = 0; i < specialChars.length;++i){
+			if(str.includes(specialChars[i])){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	function round_2(num){
+		return Math.round(num * 100)/100;
+	}
+	
+	function compute_price(){
+		var ret = 0;
+		for (var i = 0; i < mats.length; i++) {
+			if(mats[i]=="S"){
+				if(prices[i] == 135)
+				{
+					return 0;
+				}
+				ret += prices[i];
+			}
+		}
+		return round_2(ret*1.03);
+	}
+	
+	function updateData(donor,amount){
+		
+		var ret = $.ajax({
+			url: server_update+"?donor="+donor+"&amount="+amount,
+			method: "GET",
+			dataType: "json",
+			success:
+			function(data){
+				console.log(data);
+				alert("Thanks for your support :)");
+				location.reload();
+			},
+			 error: function(data) {
+                console.log(data);
+            }
+		});
+		
+	}
+	
+	function submit(){
+		var text_name = document.getElementsByName('name')[0];
+		var name = text_name.value;
+		
+		var text_note = document.getElementsByName('note')[0];
+		var note = text_note.value;
+		
+		var text_amount = document.getElementsByName('amount')[0];
+		var amount = text_amount.value;
+		
+		var donor = text_name+"|"+text_note;
+		
+		updateData(donor,amount);
+	}
+	
+	function donate(){
+		var text_name = document.getElementsByName('name')[0];
+		var name = text_name.value;
+		
+		var text_note = document.getElementsByName('note')[0];
+		var note = text_note.value;
+		
+		if(hasSpecialChar(name)){
+			alert("name cannot be empty or containing special character: |,*,?,&,#");
+			return;
+		}
+		
+		if(hasSpecialChar(note)){
+			alert("note cannot be empty or containing special character: |,*,?,&,#");
+			return;
+		}
+		
+		var donate_btn = document.getElementsByName('donate')[0];
+		donate_btn.style.visibility = "hidden";
+		
+		var payment = document.getElementById("paypal-button-container");
+		payment.style.visibility = "visible";
+		
+	}
+</script>
+
+<div name="hall_of_frame">
+</div>
+
+<div class="buy_container">
+	<br>
+	Name:<br>
+	<input type="text" name="name" value=""></input>  
+
+	<br>Note:<br>
+	<textarea name="note" style="height: 50px;width: 200px;" rows="10" cols="35"></textarea>
+
+	<br>
+	<p>Donation Amount:</p>
+	<input type="number" name="amount" value="5"></input>  
+	<br>
+	<br>
+	<br>
+</div>
+
+<button class="button" name="donate" onclick="donate()">Donate</button>
+
+<!-- Set up a container element for the button -->
+<div id="paypal-button-container"div></div>
+
+
+<!-- Include the PayPal JavaScript SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=AXQV_bnHv0SfCNUprZ3qX0vgvW3aeH6vnxzgOaCg-cG8R0AF7GVYaILxue-L0hwABR7Yiqylhn03MCJb&currency=USD"></script>
+
+<script>
+	loadData();
+	
+	// Render the PayPal button into #paypal-button-container
+	paypal.Buttons({
+		
+		// Set up the transaction
+		createOrder: function(data, actions) {
+			
+			var text_name = document.getElementsByName('name')[0];
+			var name = text_name.value;
+			
+			var text_note = document.getElementsByName('note')[0];
+			var note = text_note.value;
+			
+			var text_amount = document.getElementsByName('amount')[0];
+			var amount = text_amount.value;
+			
+			return actions.order.create({
+				purchase_units: [{
+					amount: {
+						value: amount
+					},
+					description: "<Mat maintance>: "+getDescription()+" ("+name+") ("+note+")"
+				}]
+			});
+		},
+
+		// Finalize the transaction
+		onApprove: function(data, actions) {
+			return actions.order.capture().then(function(details) {
+				// Show a success message to the buyer
+				submit();
+				alert('Transaction completed by ' + details.payer.name.given_name + '!');
+				location.reload();
+			});
+		}
+
+
+	}).render('#paypal-button-container');
+</script>
+
+
+
+</div>
+
+
+
+
+</body></html>

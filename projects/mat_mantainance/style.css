@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  float:left
+}
+
+.buy_container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  font-size: 16px;
+}
+
+.buy_container .button {
+  position: absolute;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
