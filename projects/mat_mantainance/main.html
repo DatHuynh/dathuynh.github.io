@@ -21,11 +21,8 @@
 <script>
 	var server_query = "https://spreadsheets.google.com/feeds/cells/1hcxk1k2IK46H1ddl8k2kKUfaYNgdh-4uwtR3W8JjJOY/od6/public/basic?alt=json";
 	
-	var server_update = "https://script.google.com/macros/s/AKfycbyZZwOslPJvD4ZAb2PC69bCxeIL92JAyUZMx2denbkT3NdyVDo/exec";
 	
-	var is_bid = false;
-	
-	var total = 0;
+	var server_update = "https://script.google.com/macros/s/AKfycbzFRAr3loF9FLsKeTsL8TAFxWEqR7i3tWoWammtuzV9ymwchPY/exec";
 	
 	function loadData(){
 		var payment = document.getElementById("paypal-button-container");
@@ -119,7 +116,7 @@
 		var text_amount = document.getElementsByName('amount')[0];
 		var amount = text_amount.value;
 		
-		var donor = text_name+"|"+text_note;
+		var donor = name+"|"+note;
 		
 		updateData(donor,amount);
 	}
@@ -163,7 +160,7 @@
 
 	<br>
 	<p>Donation Amount:</p>
-	<input type="number" name="amount" value="5"></input>  
+	<input type="number" name="amount" value="5"> $</input>  
 	<br>
 	<br>
 	<br>
@@ -215,8 +212,6 @@
 				location.reload();
 			});
 		}
-
-
 	}).render('#paypal-button-container');
 </script>
 
